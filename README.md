@@ -1,4 +1,4 @@
-![](https://user-images.githubusercontent.com/30883399/29363375-5cc10a82-82ad-11e7-85a1-c273a01417a2.PNG)
+![](https://user-images.githubusercontent.com/30883399/29363375-5cc10a82-82ad-11e7-85a1-c273a01417a2.PNG){:height="25%" width="25%"}
 
 # re-reg-on-the-chain
 Smart contract based solution for mutual fund re-registration
