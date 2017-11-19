@@ -1,0 +1,43 @@
+<div>  
+<h2>Dashboard</h2>
+  <form>
+        <div class="form-group">
+                <label for="usrname">Enter Your Name:</label>
+                <input type="text" class="form-control" id="usrname" required [(ngModel)]="model.usrname">
+              </div>
+              
+        <div class="form-group">
+                <label for="acc-type">Select Account type:</label>
+                <select class="form-control" id="acc-type">
+                    <option>Private Individual</option>
+                    <option>Advisor</option>
+                    <option>Regulator</option>                  
+                </select>
+        </div>
+
+        <div class="form-group">
+                <label for="ex-provider">Existing Provider:</label>
+                <input type="text" class="form-control" id="ex-provider" required [(ngModel)]="model.ex-provider">
+        </div>
+
+        <div class="form-group">
+                <label for="new-provider">New Provider:</label>
+                <input type="text" class="form-control" id="new-provider" required [(ngModel)]="model.new-provider">
+        </div>
+
+        <div class="form-group">
+                <label for="wrapper">Select Account type:</label>
+                <select class="form-control" id="wrapper">
+                    <option>ISA</option>
+                    <option>SIP</option>
+                    <option>GI</option>                  
+                </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Submit
+        </button>
+
+  </form>
+
+</div>      
