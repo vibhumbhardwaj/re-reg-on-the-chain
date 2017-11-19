@@ -1,6 +1,7 @@
 pragma solidity ^0.4.1;
 
 import "./common.sol";
+import "./customer.sol";
 
 contract BaseInst is mortal {
 
@@ -15,9 +16,7 @@ contract BaseInst is mortal {
     bytes32 PensionSharingOrderFlag;
     bytes32 GuaranteesApply;
     bytes32 Adviser;
-    bytes32 CustomerName;
-    bytes32 CustomerDOB;
-    bytes32 CustomerNIId;
+    Customer customer;
 
     function BaseInst(bytes32 _CedingSchemeName,
                       bytes32 _CedingSchemeAddress,
@@ -44,10 +43,13 @@ contract BaseInst is mortal {
            PensionSharingOrderFlag = _PensionSharingOrderFlag;
            GuaranteesApply = _GuaranteesApply;
            Adviser = _Adviser;
-           CustomerName = _CustomerName;
-           CustomerDOB = _CustomerDOB;
-           CustomerNIId = _CustomerNIId;   
+           customer = new Customer(_CustomerName, _CustomerDOB, _CustomerNIId);
+    }
 
+    function getCustomerDetails() returns (bytes32){
+        
+        var (CustName, CustDOB, CustNIId) = customer.getCustomerDetail();
+        return CustName;
     }
 
 }
