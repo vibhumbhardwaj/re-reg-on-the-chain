@@ -1,0 +1,1 @@
+export const ethNode = 'http://localhost:8545';
