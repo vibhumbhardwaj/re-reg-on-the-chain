@@ -1,11 +1,14 @@
-import errorResponse from '../controller/errorController'
-import {createBaseContract} from '../controller/createBaseContract';
+import {notFountError, internalServerError} from '../controller/errorController'
+import apiRouter from '../routers/apiRouter';
 
 export default (app) => {
   
   //API Routes:
-  app.get('/api/createBaseContract', createBaseContract);
+  app.use('/api', apiRouter);
   
   //Default 404:
-  app.route('/*').get(errorResponse);
+  app.route('/*').get(notFountError);
+    
+  //Overwriting Error Handling:
+  app.use(internalServerError);
 };

@@ -1,8 +1,7 @@
 import Web3 from 'web3';
-import {ethNode} from './config';
+import ethNode from './config';
 
 export default () => {
-
   if (typeof web3 !== 'undefined') {
     global.web3 = new Web3(web3.currentProvider);
   } else {
