@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# npm package.json lock
+package-lock.json
+
+#transpiled JS
+target/

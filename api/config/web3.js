@@ -9,5 +9,6 @@ export default () => {
   }
   return web3.eth.getAccounts().then((accounts) => {
     web3.eth.defaultAddress = accounts[0];
+    console.log('web3 Configuration Complete');
   })
 }
