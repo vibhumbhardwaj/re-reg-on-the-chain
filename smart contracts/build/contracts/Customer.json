@@ -1,0 +1,56 @@
+{
+  "contract_name": "Customer",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "kill",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "getCustomerDetail",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_CustomerName",
+          "type": "bytes32"
+        },
+        {
+          "name": "_CustomerDOB",
+          "type": "bytes32"
+        },
+        {
+          "name": "_CustomerNIId",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b60405160608061017d8339810160405280805191906020018051919060200180519150505b5b60008054600160a060020a03191633600160a060020a03161790555b6001839055600282905560038190555b5050505b610109806100746000396000f300606060405263ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166341c0e1b58114604657806387d5c02f146058575b600080fd5b3415605057600080fd5b6056608c565b005b3415606257600080fd5b606860ce565b60405192835260208301919091526040808301919091526060909101905180910390f35b6000543373ffffffffffffffffffffffffffffffffffffffff9081169116141560ca5760005473ffffffffffffffffffffffffffffffffffffffff16ff5b5b5b565b6001546002546003545b9091925600a165627a7a72305820785a9d18ebd498554c2a724dcd89224dcb8a3ec8a27733a57374cafd2fbf1ccb0029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1511114318865
+}
