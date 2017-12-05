@@ -1,4 +1,4 @@
-import {notFountError, internalServerError} from '../controller/errorController'
+import {notFountError, internalServerError} from '../controller/errors'
 import apiRouter from '../routers/apiRouter';
 
 export default (app) => {

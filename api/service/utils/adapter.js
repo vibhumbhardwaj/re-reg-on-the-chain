@@ -5,7 +5,7 @@ var estimateGasAndGo = (contractInstance, next) => {
   return contractInstance.estimateGas({
     gas: 1000000
   }).then((gasNeeded)=>{
-      console.log('Gas Estimation: ' + gasNeeded);
+      //console.log('Gas Estimation: ' + gasNeeded);
       return next(contractInstance, gasNeeded);
     }, (err)=>{
     console.error('Trouble getting the gas estimation: ' + err);
@@ -28,16 +28,28 @@ var sendDeployTransaction = (instance, gasNeeded) => {
    
  }
 
-var sendCallTransaction = (instance, gasNeeded) =>{
+var sendTransaction = (instance, gasNeeded) => {
+  return instance.send({
+    from: web3.eth.defaultAddress,
+    gas: round(gasNeeded * 1.1)
+  }, (err) => {
+    if(err) console.error('Error during send transaction--> ' + err);
+  }).then((hash) => {
+    console.log('Contract\'s state changed successfully');
+    return hash;
+  })
+}
+
+var sendCallTransaction = (instance, gasNeeded) => {
   return instance.call({
     from: web3.eth.defaultAddress,
     gas: round(gasNeeded * 1.1)
   }, (err) => {
     if (err) console.error('Error calling the instance method' + err);
-  }).then((result)=>{
+  })/*.then((result)=>{
     console.log('Response from method call -->' + result);
     return result;
-  })
+  }) Noise logging*/
 }
 
 var deployer = (json, args) => {
@@ -52,4 +64,4 @@ var deployer = (json, args) => {
   return estimateGasAndGo(instanceToDeploy, sendDeployTransaction);
 }
 
-export {deployer, estimateGasAndGo, sendCallTransaction}
+export {deployer, estimateGasAndGo, sendCallTransaction, sendTransaction}

@@ -5,6 +5,9 @@ var convertAllToHex = (args) => {
   return args;
 }
 
+var convertToString = result => web3.utils.hexToAscii(result).replace(/\u0000/g, '')
+  
+
 var round = (value) => {
   return Number(Math.round(value+'e'+0)+'e-'+0);
 }
@@ -16,5 +19,16 @@ var readFromResponse = (result) => {
   return result;
 }
 
+var errorResponse = {
+  success: false,
+  message: 'Something Happened'
+}
 
-export {convertAllToHex, round, readFromResponse}
+
+export {
+  convertAllToHex,
+  round,
+  readFromResponse,
+  errorResponse,
+  convertToString
+};

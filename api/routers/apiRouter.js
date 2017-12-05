@@ -1,15 +1,20 @@
 import express from 'express';
-import {createBaseContract, getCustomerDetails} from '../controller/baseInstrController';
+import {createBaseContract, getInstruction, getAllInstructions} from './../controller/baseInstruction';
 
-var router = express.Router();
+
+let router = express.Router();
 
 router.use(function(req, res, next) {
-
-	console.log('\n[INFO]@API  @ time: ' + new Date().toUTCString() + ' URL--> ' + req.url.toString());
+  console.log('\n[INFO]@API  @ time: ' + new Date().toUTCString() + ' URL--> ' + req.url.toString());
+	
+	// Add authorisation of the request maybe?
 	next();
 });
 
+
 router.post('/createBaseContract', createBaseContract);
-router.post('/getCustomerDetails', getCustomerDetails);
+router.post('/getCustomerDetails', getInstruction);
+router.all('/viewInstructions/:max', getAllInstructions);
+
 
 export default router;
