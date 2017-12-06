@@ -5,14 +5,14 @@ import {deployer, estimateGasAndGo, sendCallTransaction, sendTransaction} from '
 var contract;
 
 var setupRegistryContract = () => {
-  var setVariable = (address)=> {
+  var setVariable = (address) => {
     contract = new web3.eth.Contract(registryJson.abi, address);
   }
-  
-  if(environment == 'local')
+
+  if (environment == 'local')
     deployer(registryJson)
-      .then(x => x.options.address)
-      .then(setVariable)
+    .then(x => x.options.address)
+    .then(setVariable)
   else
     setVariable(registryAddress)
 }
@@ -20,18 +20,18 @@ var setupRegistryContract = () => {
 var getContracts = (contractName) => {
   contractName = web3.utils.asciiToHex(contractName);
   let getAllAddressOfContract = contract.methods.getAllAddressOfContract(contractName);
-  
+
   return estimateGasAndGo(getAllAddressOfContract, sendCallTransaction)
     .then((result) => {
-    console.log('Received this much instantiated contracts--> ' + result.length);
-    return result;
-  })
+      console.log('Received this much instantiated contracts--> ' + result.length);
+      return result;
+    })
 }
 
 var addNewContract = (contractName, address) => {
   let addAddress = contract.methods.addAddress(web3.utils.asciiToHex(contractName), address);
   return estimateGasAndGo(addAddress, sendTransaction)
-    .then( () => address)
+    .then(() => address)
 }
 
 

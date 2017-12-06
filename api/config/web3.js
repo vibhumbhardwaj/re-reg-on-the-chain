@@ -8,11 +8,11 @@ export default () => {
   } else {
     global.web3 = new Web3(new Web3.providers.HttpProvider(ethNode));
   }
-  
-  
+
+
   return web3.eth.getAccounts().then((accounts) => {
     web3.eth.defaultAddress = accounts[0];
-    console.log('web3 Configuration Complete');    
+    console.log('web3 Configuration Complete');
     setupRegistryContract();
   })
 }

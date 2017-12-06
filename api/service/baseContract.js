@@ -3,7 +3,7 @@ import {estimateGasAndGo, deployer, sendCallTransaction} from './utils/adapter';
 import baseContractJson from './../../smart contracts/build/contracts/BaseInst.json';
 
 var getDeployArguments = (body) => {
-  let args =  [
+  let args = [
     body.cedingSchemeName,
     body.cedingSchemeAddress,
     body.policyNumber,
@@ -27,7 +27,7 @@ var getDeployArguments = (body) => {
 var deployBaseContract = (args) => {
   args = getDeployArguments(args);
   return deployer(baseContractJson, args)
-		.then(contract => contract.options.address);
+    .then(contract => contract.options.address);
 }
 
 var getCustomerDetails = (contractAddress) => {
@@ -45,19 +45,18 @@ var getCustomerDetails = (contractAddress) => {
 
 
 var getConsolidatedView = (addresses) => {
-	let responseArray = addresses.map(x => 
-		getCustomerDetails(x).then(response => ({
-			customerName: response.customerName
-		})) //TODO: Add more fields to the return object
-	)
-	
-	return Promise.all(responseArray);
+  let responseArray = addresses.map(x =>
+    getCustomerDetails(x).then(response => ({
+      customerName: response.customerName
+    })) //TODO: Add more fields to the return object
+  )
+
+  return Promise.all(responseArray);
 }
 
 
 export {
-	deployBaseContract,
-	getCustomerDetails,
-	getConsolidatedView
+  deployBaseContract,
+  getCustomerDetails,
+  getConsolidatedView
 };
-

@@ -1,4 +1,4 @@
-export var notFountError =  (req, res) => {
+export var notFountError = (req, res) => {
   let errResponse = {
     "status": "404",
     "message": "Invalid API endpoint"

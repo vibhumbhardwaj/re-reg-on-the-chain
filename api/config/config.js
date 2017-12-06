@@ -8,7 +8,7 @@ const registryAddress = '0x00';
 
 //Contracts' names
 const contracts = {
-  baseInst : 'BaseInst'
+  baseInst: 'BaseInst'
 }
 
 export {
