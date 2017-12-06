@@ -24,14 +24,29 @@ Returns "newContractAddress" of the instantiated contract.
   customerNIID: string  
 }  
 **Response:**  
-{ "newContractAddress": <hex address of the deployed contract> }  
+{ "newContractAddress": #hex address of the deployed contract }  
   
 ### 2. /api/getCustomerDetails: POST  
 Calls getCustomerDetails method of the previously instantiated base contract.  
   
 **Request:**  
-{"contractAddress": <hex address of the contract to be used>}  
+{"contractAddress": #hex address of the contract to be used}  
 
 **Response:**  
-{ "customerName" : string }  
+{ "customerName" : string }
 
+### 3. /api/viewInstructions/all: Get/Post
+
+Will retrieve all the instructions added to registry contract and return an array of that.
+
+**Request:**  
+* Request body not required.  
+* Replace all in URL with a number to limit the total output.  
+_e.g._ /api/viewInstructions/5 will return an array of only recent 5 instructions .
+  
+**Response:**  
+Only returns customerName in instruction as of now...  
+{  
+  sucess: true,  
+  instructions: [{customerName: "string"}, ...]  
+}  
